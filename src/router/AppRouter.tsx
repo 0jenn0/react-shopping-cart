@@ -3,27 +3,32 @@ import App from "../App";
 import CartPage from "../pages/CartPage";
 import ConfirmOrderPage from "../pages/ConfirmOrderPage";
 
-const router = createBrowserRouter([
+const router = createBrowserRouter(
+  [
+    {
+      path: "/",
+      element: <App />,
+      // errorElement: <ErrorBoundary />,
+      children: [
+        {
+          index: true,
+          element: <CartPage />,
+        },
+      ],
+    },
+    {
+      path: "/confirm",
+      element: <ConfirmOrderPage />,
+    },
+    {
+      path: "*",
+      // element: <NotFoundPage />,
+    },
+  ],
   {
-    path: "/",
-    element: <App />,
-    // errorElement: <ErrorBoundary />,
-    children: [
-      {
-        index: true,
-        element: <CartPage />,
-      },
-    ],
-  },
-  {
-    path: "/confirm",
-    element: <ConfirmOrderPage />,
-  },
-  {
-    path: "*",
-    // element: <NotFoundPage />,
-  },
-]);
+    basename: "/react-shopping-cart/dist/",
+  }
+);
 
 const AppRouter = () => {
   return <RouterProvider router={router} />;
