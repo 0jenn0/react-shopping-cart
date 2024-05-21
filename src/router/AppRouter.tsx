@@ -21,7 +21,7 @@ const router = createBrowserRouter(
     },
   ],
   {
-    basename: "/react-shopping-cart/dist/",
+    basename: "/react-shopping-cart/dist",
   }
 );
 
